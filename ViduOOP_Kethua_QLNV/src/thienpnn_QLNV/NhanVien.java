@@ -22,6 +22,7 @@ public class NhanVien {
 		this.hoTen = hoTen;
 		this.luongCoBan = luongCoBan;
 	}
+	
 	public NhanVien() {
 		super();
 	}
