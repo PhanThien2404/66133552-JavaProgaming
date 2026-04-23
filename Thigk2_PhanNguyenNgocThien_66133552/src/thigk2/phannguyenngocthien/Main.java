@@ -28,7 +28,7 @@ public class Main {
 		System.out.println("Câu 1 : Tính chỉ số BMI");
 		cau1_BMI(scanner);
 		System.out.println("Câu 2 : Quản lý sinh viên");
-		cau2_QuảnLySinhVien(scanner);
+		cau2_QuanLySinhVien(scanner);
 		System.out.println("Câu 3 : Đọc file và tìm kiếm");
 		cau3_DocFile();
 		
@@ -41,9 +41,9 @@ public class Main {
 		try
 		{
 			System.out.print("Nhập chiều cao: ");
-			double chieuCao = Double.parseDouble(scanner.nextLine()));
+			double chieuCao = Double.parseDouble(scanner.nextLine());
 			System.out.print("Nhập cân nặng: ");
-			double canNang = Double.parseDouble(scanner.nextLine()));
+			double canNang = Double.parseDouble(scanner.nextLine());
 			
 			double bmi = canNang / (chieuCao * chieuCao);
 			System.out.print("Chỉ số BMT là: %.2f\n");
@@ -64,7 +64,34 @@ public class Main {
 			else
 			{
 				System.out.println("Béo phì");
+			} catch 
+			{
+				System.out.println("Nhập lại số hợp lệ");
 			}
 		}
+	}
+	
+	// Hàm làm câu 2
+	public static void cau2_QuanLySinhVien(Scanner scanner)
+	{
+		List<SinhVien> danhSachSV = new ArrayList<>();
+		// Thông tin 3 sinh viên 
+		danhSachSV.add(new SinhVien("66123" , "Nguyen Van A" , 2004 , "66CNTT1");
+		danhSachSV.add(new SinhVien("66124" , "Tran Thi B" , 2006 , "66CNTT1");
+		danhSachSV.add(new SinhVien("66125" , "Le Van C" , 2003 , "66CNTT2");
+		
+		System.out.println("Danh sách 3 sinh viên ban đầu : ");
+		for (SinhVien sv : danhSachSV) {
+            System.out.println(sv);
+        }
+		//Thêm 1 sinh viên bàn phím
+		System.out.println("Nhập mã SV: ");
+		String maSV = scanner.nextLine();
+		System.out.println("Nhập họ tên: ");
+		String hoTen = scanner.nextLine();
+		System.out.print("Nhập năm sinh: ");
+        int namSinh = Integer.parseInt(scanner.nextLine());
+        System.out.print("Nhập lớp: ");
+        String lop = scanner.nextLine();
 	}
 }
