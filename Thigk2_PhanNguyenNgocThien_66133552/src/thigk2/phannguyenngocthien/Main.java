@@ -36,49 +36,39 @@ public class Main {
  
 	}
     // Hàm làm câu 1
-	public static void cau1_BMI(Scanner scanner)
-	{
-		try
-		{
-			System.out.print("Nhập chiều cao: ");
-			double chieuCao = Double.parseDouble(scanner.nextLine());
-			System.out.print("Nhập cân nặng: ");
-			double canNang = Double.parseDouble(scanner.nextLine());
-			
-			double bmi = canNang / (chieuCao * chieuCao);
-			System.out.print("Chỉ số BMT là: %.2f\n");
-			
-			System.out.print("Tình trạng cơ thể: ");
-			if (bmi < 18.5)
-			{
-				System.out.println("Gầy");
-			}
-			else if ( bmi >= 18.5 && bmi < 25 )
-			{
-				System.out.println("Bình thường");
-			}
-			else if ( bmi >= 25 && bmi < 30 )
-			{
-				System.out.println("Thừa cân");
-			}
-			else
-			{
-				System.out.println("Béo phì");
-			} catch 
-			{
-				System.out.println("Nhập lại số hợp lệ");
-			}
-		}
-	}
+	public static void cau1_BMI(Scanner scanner) {
+        try {
+            System.out.print("Nhập chiều cao của bạn (đơn vị: mét, ví dụ 1.75): ");
+            double chieuCao = Double.parseDouble(scanner.nextLine());
+            System.out.print("Nhập cân nặng của bạn (đơn vị: kg): ");
+            double canNang = Double.parseDouble(scanner.nextLine());
+
+            double bmi = canNang / (chieuCao * chieuCao);
+            System.out.printf("Chỉ số BMI của bạn là: %.2f\n", bmi);
+
+            System.out.print("Tình trạng cơ thể: ");
+            if (bmi < 18.5) {
+                System.out.println("Gầy (Cân nặng thấp)");
+            } else if (bmi >= 18.5 && bmi < 25) {
+                System.out.println("Bình thường");
+            } else if (bmi >= 25 && bmi < 30) {
+                System.out.println("Thừa cân");
+            } else {
+                System.out.println("Béo phì");
+            }
+        } catch(NumberFormatException e) {
+            System.out.println("Nhập lại số ");
+        }
+    }
 	
 	// Hàm làm câu 2
 	public static void cau2_QuanLySinhVien(Scanner scanner)
 	{
 		List<SinhVien> danhSachSV = new ArrayList<>();
 		// Thông tin 3 sinh viên 
-		danhSachSV.add(new SinhVien("66123" , "Nguyen Van A" , 2004 , "66CNTT1");
-		danhSachSV.add(new SinhVien("66124" , "Tran Thi B" , 2006 , "66CNTT1");
-		danhSachSV.add(new SinhVien("66125" , "Le Van C" , 2003 , "66CNTT2");
+		danhSachSV.add(new SinhVien("66123" , "Nguyen Van A" , 2004 , "66CNTT1"));
+		danhSachSV.add(new SinhVien("66124" , "Tran Thi B" , 2006 , "66CNTT1"));
+		danhSachSV.add(new SinhVien("66125" , "Le Van C" , 2003 , "66CNTT2"));
 		
 		System.out.println("Danh sách 3 sinh viên ban đầu : ");
 		for (SinhVien sv : danhSachSV) {
@@ -93,5 +83,27 @@ public class Main {
         int namSinh = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập lớp: ");
         String lop = scanner.nextLine();
+        
+        danhSachSV.add(new SinhVien(maSV, hoTen , namSinh, lop));
+        // In lại danh sách
+        System.out.println("Danh sách sinh viên sau khi thêm");
+        for (SinhVien sv : danhsachSV)
+        {
+        	System.out.println(sv);
+        }
+        
+        // In sinh viên > 20 tuổi 
+        int namhientai = Year.now().getValue(); // lấy năm hiện tại
+        System.out.println("Danh sách sinh viên lớn hơn 20 tuổi");
+        for (SinhVien sv : danhSachSV)
+        {
+        	int tuoi = namhientai - sv.getNamSinh();
+        	if (tuoi>20)
+        	{
+        		System.out.println(sv + " -> Tuổi: " + tuoi);
+        	}
+        }      
 	}
+	
+	
 }
