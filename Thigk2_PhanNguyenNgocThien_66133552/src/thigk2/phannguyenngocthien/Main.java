@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /*
- * CÁCH GIẢI CHI TIẾT:
+ * CÁCH GIẢI CHO TỪNG CÂU:
  * * - Câu 1: Sử dụng Scanner để nhận giá trị chiều cao (m) và cân nặng (kg) kiểu double. 
  * Tính BMI theo công thức: BMI = Cân nặng / (Chiều cao * Chiều cao). Dùng if-else để phân loại tình trạng cơ thể dựa trên chuẩn BMI của WHO.
  * * - Câu 2: 
@@ -35,5 +35,36 @@ public class Main {
 		scanner.close();
  
 	}
-
+    // Hàm làm câu 1
+	public static void cau1_BMI(Scanner scanner)
+	{
+		try
+		{
+			System.out.print("Nhập chiều cao: ");
+			double chieuCao = Double.parseDouble(scanner.nextLine()));
+			System.out.print("Nhập cân nặng: ");
+			double canNang = Double.parseDouble(scanner.nextLine()));
+			
+			double bmi = canNang / (chieuCao * chieuCao);
+			System.out.print("Chỉ số BMT là: %.2f\n");
+			
+			System.out.print("Tình trạng cơ thể: ");
+			if (bmi < 18.5)
+			{
+				System.out.println("Gầy");
+			}
+			else if ( bmi >= 18.5 && bmi < 25 )
+			{
+				System.out.println("Bình thường");
+			}
+			else if ( bmi >= 25 && bmi < 30 )
+			{
+				System.out.println("Thừa cân");
+			}
+			else
+			{
+				System.out.println("Béo phì");
+			}
+		}
+	}
 }
