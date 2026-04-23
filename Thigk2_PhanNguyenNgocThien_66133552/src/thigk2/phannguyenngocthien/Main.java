@@ -87,7 +87,7 @@ public class Main {
         danhSachSV.add(new SinhVien(maSV, hoTen , namSinh, lop));
         // In lại danh sách
         System.out.println("Danh sách sinh viên sau khi thêm");
-        for (SinhVien sv : danhsachSV)
+        for (SinhVien sv : danhSachSV)
         {
         	System.out.println(sv);
         }
@@ -105,5 +105,33 @@ public class Main {
         }      
 	}
 	
-	
+	// Hàm làm câu 3
+	public static void cau3_DocFile()
+	{
+		int X =2;
+		boolean XFound = false;
+		
+		System.out.println("Đọc file 'numbers.txt'");
+		try {
+			File flie = new File(numbers.txt);
+			Scanner fileScanner = new Scanner(file);
+			
+			System.out.println("Các số nguyên có trong file:");
+			while(fileScanner.hasNextInt()) {
+				int number = fileScanner.nextInt();
+				System.out.print(number + " ");
+				if ( number == X )
+				{
+					XFound = true;
+				}
+			}
+			System.out.println();
+			fileScanner.close();
+			
+			System.out.println("Giá trị X (" + X + ") có tồn tại trong file này không" + (XFound ? "Có" : "Không"));
+		} catch (FileNotFoundException e)
+		{
+			System.out.println("Không tìm được file");
+		}
+	}
 }
