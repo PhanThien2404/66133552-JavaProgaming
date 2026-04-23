@@ -38,17 +38,17 @@ public class Main {
     // Hàm làm câu 1
 	public static void cau1_BMI(Scanner scanner) {
         try {
-            System.out.print("Nhập chiều cao của bạn (đơn vị: mét, ví dụ 1.75): ");
+            System.out.print("Nhập chiều cao: ");
             double chieuCao = Double.parseDouble(scanner.nextLine());
-            System.out.print("Nhập cân nặng của bạn (đơn vị: kg): ");
+            System.out.print("Nhập cân nặng: ");
             double canNang = Double.parseDouble(scanner.nextLine());
 
             double bmi = canNang / (chieuCao * chieuCao);
-            System.out.printf("Chỉ số BMI của bạn là: %.2f\n", bmi);
+            System.out.printf("Chỉ số BMI là: %.2f\n", bmi);
 
             System.out.print("Tình trạng cơ thể: ");
             if (bmi < 18.5) {
-                System.out.println("Gầy (Cân nặng thấp)");
+                System.out.println("Gầy");
             } else if (bmi >= 18.5 && bmi < 25) {
                 System.out.println("Bình thường");
             } else if (bmi >= 25 && bmi < 30) {
@@ -108,12 +108,13 @@ public class Main {
 	// Hàm làm câu 3
 	public static void cau3_DocFile()
 	{
+		//Ký tự cuối của mssv 66133552
 		int X =2;
 		boolean XFound = false;
 		
-		System.out.println("Đọc file 'numbers.txt'");
+		System.out.println("Đọc file 'number.txt'");
 		try {
-			File flie = new File(numbers.txt);
+			File file = new File("number.txt");
 			Scanner fileScanner = new Scanner(file);
 			
 			System.out.println("Các số nguyên có trong file:");
@@ -128,7 +129,7 @@ public class Main {
 			System.out.println();
 			fileScanner.close();
 			
-			System.out.println("Giá trị X (" + X + ") có tồn tại trong file này không" + (XFound ? "Có" : "Không"));
+			System.out.println("Giá trị X (" + X + ") có tồn tại trong file này không" + (XFound ? " Có" : " Không"));
 		} catch (FileNotFoundException e)
 		{
 			System.out.println("Không tìm được file");
